@@ -69,7 +69,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="max-w-5xl mx-auto px-4 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <h1 className="text-2xl font-bold text-gray-800">📝 My Notes</h1>
+        <h1 className="text-2xl font-bold text-gray-800">My Notes</h1>
 
         <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
           <SearchBar value={searchTerm} onChange={setSearchTerm} />
