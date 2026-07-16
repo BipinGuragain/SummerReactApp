@@ -8,7 +8,7 @@ function SearchBar({ value, onChange }) {
       value={value}
       onChange={(e) => onChange(e.target.value)}
       placeholder="Search notes by title..."
-      className="w-full sm:w-64 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
+      className="w-full sm:w-64 border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
     />
   )
 }

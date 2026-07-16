@@ -41,7 +41,7 @@ function NewNoteModal({ onSave, onClose, noteToEdit }) {
             placeholder="Title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            className="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
           />
 
           <textarea
@@ -49,13 +49,13 @@ function NewNoteModal({ onSave, onClose, noteToEdit }) {
             value={body}
             onChange={(e) => setBody(e.target.value)}
             rows={4}
-            className="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            className="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
           />
 
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            className="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
           >
             <option value="Personal">Personal</option>
             <option value="Work">Work</option>
@@ -72,7 +72,7 @@ function NewNoteModal({ onSave, onClose, noteToEdit }) {
             </button>
             <button
               type="submit"
-              className="px-4 py-2 text-sm rounded-md bg-indigo-600 text-white hover:bg-indigo-700"
+              className="px-4 py-2 text-sm rounded-md bg-teal-700 text-white hover:bg-teal-800"
             >
               {isEditing ? 'Update Note' : 'Save Note'}
             </button>

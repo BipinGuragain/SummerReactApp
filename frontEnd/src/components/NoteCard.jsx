@@ -27,7 +27,7 @@ function NoteCard({ note, onDelete, onEdit }) {
       <div className="flex justify-end gap-3 mt-2">
         <button
           onClick={() => onEdit(note)}
-          className="text-sm text-indigo-600 hover:text-indigo-800"
+          className="text-sm text-teal-700 hover:text-teal-900"
         >
           Edit
         </button>

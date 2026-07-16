@@ -5,7 +5,7 @@ function NewNoteButton({ onClick }) {
   return (
     <button
       onClick={onClick}
-      className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700"
+      className="bg-teal-700 text-white px-4 py-2 rounded-md hover:bg-teal-800"
     >
       + New Note
     </button>
