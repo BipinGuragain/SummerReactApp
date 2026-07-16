@@ -9,7 +9,7 @@ const CATEGORY_COLORS = {
   Study: 'text-green-600',
 }
 
-function NoteCard({ note, onDelete }) {
+function NoteCard({ note, onDelete, onEdit }) {
   // Fall back to grey text if a note ever has an unknown category.
   const textColor = CATEGORY_COLORS[note.category] || 'text-gray-500'
 
@@ -24,12 +24,20 @@ function NoteCard({ note, onDelete }) {
 
       <p className="text-gray-600 text-sm flex-1">{note.body}</p>
 
-      <button
-        onClick={() => onDelete(note.id)}
-        className="self-end text-sm text-red-500 hover:text-red-700 mt-2"
-      >
-        Delete
-      </button>
+      <div className="flex justify-end gap-3 mt-2">
+        <button
+          onClick={() => onEdit(note)}
+          className="text-sm text-indigo-600 hover:text-indigo-800"
+        >
+          Edit
+        </button>
+        <button
+          onClick={() => onDelete(note.id)}
+          className="text-sm text-red-500 hover:text-red-700"
+        >
+          Delete
+        </button>
+      </div>
     </div>
   )
 }

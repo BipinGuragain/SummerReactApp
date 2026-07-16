@@ -3,15 +3,19 @@
 
 import NoteCard from './NoteCard'
 
-function NoteGrid({ notes, onDelete }) {
+function NoteGrid({ notes, onDelete, onEdit }) {
   if (notes.length === 0) {
-    return <p className="text-gray-500 text-center mt-10">No notes found.</p>
+    return (
+      <p className="text-gray-500 text-center mt-10">
+        No notes yet. Click "+ New Note" to create your first one!
+      </p>
+    )
   }
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {notes.map((note) => (
-        <NoteCard key={note.id} note={note} onDelete={onDelete} />
+        <NoteCard key={note.id} note={note} onDelete={onDelete} onEdit={onEdit} />
       ))}
     </div>
   )

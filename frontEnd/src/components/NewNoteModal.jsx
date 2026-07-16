@@ -1,13 +1,18 @@
-// NewNoteModal shows a small form in a popup for creating a new note.
+// NewNoteModal shows a small form in a popup for creating OR editing a note.
 // The title and body inputs are "controlled" - their value always comes
 // from this component's own state, and every keystroke updates that state.
+//
+// If a "noteToEdit" is passed in, the form starts pre-filled with that
+// note's data and behaves like an edit form instead of a blank one.
 
 import { useState } from 'react'
 
-function NewNoteModal({ onSave, onClose }) {
-  const [title, setTitle] = useState('')
-  const [body, setBody] = useState('')
-  const [category, setCategory] = useState('Personal')
+function NewNoteModal({ onSave, onClose, noteToEdit }) {
+  const isEditing = Boolean(noteToEdit)
+
+  const [title, setTitle] = useState(noteToEdit ? noteToEdit.title : '')
+  const [body, setBody] = useState(noteToEdit ? noteToEdit.body : '')
+  const [category, setCategory] = useState(noteToEdit ? noteToEdit.category : 'Personal')
 
   function handleSubmit(e) {
     e.preventDefault() // stop the page from reloading
@@ -15,18 +20,20 @@ function NewNoteModal({ onSave, onClose }) {
     // Don't save empty notes.
     if (title.trim() === '') return
 
-    onSave({ title, body, category })
-
-    // Clear the form after saving, in case the modal stays open.
-    setTitle('')
-    setBody('')
-    setCategory('Personal')
+    onSave({
+      id: noteToEdit ? noteToEdit.id : undefined,
+      title,
+      body,
+      category,
+    })
   }
 
   return (
     <div className="fixed inset-0 bg-black/40 flex items-center justify-center p-4">
       <div className="bg-white rounded-lg shadow p-6 w-full max-w-sm">
-        <h2 className="text-lg font-semibold mb-4">New Note</h2>
+        <h2 className="text-lg font-semibold mb-4">
+          {isEditing ? 'Edit Note' : 'New Note'}
+        </h2>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-3">
           <input
@@ -67,7 +74,7 @@ function NewNoteModal({ onSave, onClose }) {
               type="submit"
               className="px-4 py-2 text-sm rounded-md bg-indigo-600 text-white hover:bg-indigo-700"
             >
-              Save Note
+              {isEditing ? 'Update Note' : 'Save Note'}
             </button>
           </div>
         </form>
